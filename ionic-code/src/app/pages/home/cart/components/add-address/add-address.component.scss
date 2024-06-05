@@ -1,0 +1,15 @@
+.full-border {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+ion-button {
+    ion-text {
+        font-size: 1rem;
+    }
+}
+
+ion-toggle {
+    max-width: fit-content;
+}

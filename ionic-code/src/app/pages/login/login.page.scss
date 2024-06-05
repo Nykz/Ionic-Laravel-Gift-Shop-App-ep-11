@@ -1,0 +1,51 @@
+ion-content {
+  --background: linear-gradient(
+    to bottom,
+    var(--ion-color-secondary),
+    var(--ion-color-primary)
+  );
+
+  ion-card {
+    transform: translateY(20%);
+    border-radius: 0;
+    div.logo {
+      margin: 5vh 0 8vh 0;
+      img {
+        height: 3rem;
+      }
+    }
+
+    ion-input {
+      font-size: 1rem;
+      ion-icon {
+        font-size: 1.2rem;
+      }
+    }
+
+    div.forgot-password {
+      margin-top: 0.5rem;
+    }
+    .login-button {
+      --background: linear-gradient(
+        to right,
+        var(--ion-color-primary),
+        var(--ion-color-secondary)
+      );
+      ion-text {
+        font-size: 1.2rem;
+      }
+    }
+
+    div.signup {
+      ion-text {
+        font-size: 0.8rem;
+        vertical-align: -webkit-baseline-middle;
+      }
+      ion-button {
+        --padding-start: 0;
+        margin-left: 0;
+        text-transform: none;
+      }
+    }
+  }
+}

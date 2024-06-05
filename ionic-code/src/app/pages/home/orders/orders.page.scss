@@ -1,0 +1,22 @@
+ion-item {
+    ion-label {
+        font-size: 1rem;
+        p {
+            font-size: 0.8rem;
+        }
+
+    }
+    ion-text {
+        font-size: 0.95rem;
+    }
+}
+ion-row {
+    margin: 1rem;
+    ion-col {
+        font-size: 0.85rem;
+    }
+}
+
+ion-grid {
+    border-bottom: 2vh solid var(--ion-color-light);
+}

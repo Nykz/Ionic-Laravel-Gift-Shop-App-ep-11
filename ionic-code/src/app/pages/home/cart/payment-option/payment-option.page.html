@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Choose pay option</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home/cart"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-radio-group [(ngModel)]="pay_mode">
+    <ion-list class="ion-margin" lines="full">
+      <ion-item>
+        <ion-label color="dark">
+          Pay via Razorpay
+          <p>(Credit/Debit Card, UPI etc.)</p>
+        </ion-label>
+
+        <ion-radio
+          slot="end"
+          mode="md"
+          aria-label="razorpay"
+          value="Razorpay"
+        ></ion-radio>
+      </ion-item>
+
+      <ion-item class="ion-margin-top">
+        <ion-label color="dark">
+          Pay via Stripe
+          <p>(Credit/Debit Card)</p>
+        </ion-label>
+
+        <ion-radio
+          slot="end"
+          mode="md"
+          aria-label="stripe"
+          value="Stripe"
+        ></ion-radio>
+      </ion-item>
+
+      <ion-item class="ion-margin-top">
+        <ion-label color="dark"> Cash on Delivery </ion-label>
+
+        <ion-radio
+          slot="end"
+          mode="md"
+          aria-label="cod"
+          value="Cod"
+        ></ion-radio>
+      </ion-item>
+    </ion-list>
+  </ion-radio-group>
+
+  <!-- toast message -->
+  <ion-toast
+    [isOpen]="isToastMessage"
+    [message]="toastModal?.message"
+    [color]="toastModal?.color"
+    [duration]="3000"
+    [animated]="true"
+    position="bottom"
+    (didDismiss)="isToastMessage = false"
+  >
+  </ion-toast>
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="light">
+    <div class="ion-margin">
+
+      @if(!isLoading) {
+        <ion-button
+          expand="block"
+          size="large"
+          [strong]="true"
+          (click)="placeOrder()"
+        >
+          <ion-text> Pay {{currency}}{{order?.grandTotal}} </ion-text>
+        </ion-button>
+      } @else {
+        <ion-button
+          expand="block"
+          size="large"
+          [strong]="true"
+        >
+          <ion-spinner name="crescent" color="light"></ion-spinner>
+        </ion-button>
+      }
+
+    </div>
+  </ion-toolbar>
+</ion-footer>

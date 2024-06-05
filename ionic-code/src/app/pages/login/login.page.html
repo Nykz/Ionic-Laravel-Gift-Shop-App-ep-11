@@ -1,0 +1,80 @@
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <div align="center" class="logo">
+      <img src="assets/imgs/logo.png" />
+    </div>
+
+    <form [formGroup]="form" class="ion-margin-horizontal">
+      <ion-input
+        label=""
+        class="ion-margin-bottom"
+        color="primary"
+        type="email"
+        placeholder="Email address"
+        formControlName="email"
+        errorText="* Please enter your email address"
+      >
+        <ion-icon slot="start" name="person-outline" color="dark"></ion-icon>
+      </ion-input>
+
+      <ion-input
+        label=""
+        type="password"
+        color="primary"
+        placeholder="Password"
+        formControlName="password"
+        [errorText]="form.get('password')?.hasError('minlength') ? '* Password must be atleast 8 characters long' : '* Please enter your password'"
+      >
+        <ion-icon
+          slot="start"
+          name="lock-closed-outline"
+          color="dark"
+        ></ion-icon>
+
+        <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+      </ion-input>
+
+      <div align="right" class="ion-margin-bottom" class="forgot-password">
+        <ion-button fill="clear" color="primary" size="small">
+          Forgot Password?
+        </ion-button>
+      </div>
+
+      @if(!isLogin) {
+        <ion-button
+          expand="block"
+          size="large"
+          class="ion-padding login-button"
+          shape="round"
+          [strong]="true"
+          (click)="onSubmit()"
+        >
+          <ion-text> LOGIN </ion-text>
+        </ion-button>
+      } @else {
+        <ion-button
+          expand="block"
+          size="large"
+          class="ion-padding login-button"
+          shape="round"
+          [strong]="true"
+        >
+          <ion-spinner name="crescent" color="light"></ion-spinner>
+        </ion-button>
+      }
+    </form>
+
+    <div [align]="'center'" class="ion-padding-bottom signup">
+      <ion-text> Don't have an account? </ion-text>
+      <ion-button
+        fill="clear"
+        color="dark"
+        size="small"
+        [strong]="true"
+        routerLink="signup"
+      >
+        <ion-text slot="start"> Sign Up </ion-text>
+      </ion-button>
+    </div>
+  </ion-card>
+</ion-content>

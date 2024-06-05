@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Past Orders</ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+  <ion-list>
+    @for(order of orders; track $index) {
+      <ion-grid>
+
+        <ion-item lines="full">
+          <ion-label>
+            Order ID #{{order?.id}}
+            <p>
+              {{order?.created_at | date: 'MMM d, y'}}
+            </p>
+  
+          </ion-label>
+          <ion-text >
+            {{currency}}{{order?.grandTotal | number: '0.2-2'}}
+          </ion-text>
+        </ion-item>
+  
+        <ion-row>
+          @for(item of order?.order_items; track i; let i = $index) {
+            <ion-col size="12">
+              {{item?.name}} x {{ item?.quantity }}
+            </ion-col>
+          }
+        </ion-row>
+      </ion-grid>
+    }
+  </ion-list>
+</ion-content>
